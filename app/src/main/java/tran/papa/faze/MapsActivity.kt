@@ -15,6 +15,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
+import java.security.AccessController.getContext
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -110,6 +112,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
+
+        mMap.setMapStyle(MapStyleOptions.loadRawResourceStyle(this, R.raw.map_style))
 
         updateLocationUI()
 
